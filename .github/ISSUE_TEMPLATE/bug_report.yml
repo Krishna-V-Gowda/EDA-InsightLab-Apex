@@ -1,0 +1,36 @@
+name: Bug report
+description: Report a reproducible product or data-workflow problem
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: "Thank you. Remove confidential data before submitting."
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the observed and expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      placeholder: "1. Load... 2. Click... 3. Observe..."
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and operating system
+    validations:
+      required: true
+  - type: input
+    id: dataset
+    attributes:
+      label: Dataset and approximate dimensions
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots or console output

@@ -1,0 +1,28 @@
+# Operating systems
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Local server / test artifacts
+coverage/
+playwright-report/
+test-results/
+*.log
+
+# Office temporary files
+~$*.docx
+~$*.pptx

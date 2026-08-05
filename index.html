@@ -1,0 +1,476 @@
+<!doctype html>
+
+
+<html data-theme="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>EDA InsightLab Apex | Statistical Discovery Platform</title>
+<meta content="A local-first statistical discovery platform for exploratory data analysis, preprocessing, feature engineering, feature selection, PCA, and exportable model-ready data." name="description"/>
+<link href="assets/brand/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/css/styles.css" rel="stylesheet"/>
+<meta content="Kriss Gowda" name="author"/><meta content="#050712" name="theme-color"/><meta content="dark light" name="color-scheme"/><meta content="website" property="og:type"/><meta content="EDA InsightLab Apex" property="og:title"/><meta content="From raw tables to defensible, model-ready data - entirely in the browser." property="og:description"/><meta content="https://krishna-v-gowda.github.io/EDA-InsightLab-Apex/" property="og:url"/><meta content="https://krishna-v-gowda.github.io/EDA-InsightLab-Apex/assets/brand/social-preview.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><meta content="EDA InsightLab Apex" name="twitter:title"/><meta content="Interactive statistical discovery, preprocessing, feature engineering, PCA, and export." name="twitter:description"/><meta content="https://krishna-v-gowda.github.io/EDA-InsightLab-Apex/assets/brand/social-preview.png" name="twitter:image"/><link href="https://krishna-v-gowda.github.io/EDA-InsightLab-Apex/" rel="canonical"/></head>
+<body><noscript>EDA InsightLab Apex requires JavaScript to run the interactive analysis workflow.</noscript>
+<canvas aria-hidden="true" id="auroraCanvas"></canvas>
+<div aria-hidden="true" class="grain"></div>
+<div aria-hidden="true" class="cursor-glow" id="cursorGlow"></div>
+<a class="skip-link" href="#studio">Skip to lab</a>
+<header class="site-header" id="top">
+<a aria-label="EDA InsightLab Apex home" class="brand" href="#hero">
+<img alt="EDA InsightLab Apex mark" src="assets/brand/mark.svg"/>
+<span>
+<strong>EDA InsightLab</strong>
+<small>Statistical Discovery Platform</small>
+</span>
+</a>
+<nav aria-label="Primary navigation" class="desktop-nav">
+<a href="#studio">Studio</a>
+<a href="#visuals">Visuals</a>
+<a href="#cleaning">Cleaning</a>
+<a href="#featurelab">Features</a>
+<a href="#selection">Selection</a>
+<a href="#pca">PCA</a>
+<a href="#learn">Methods</a>
+<a href="#report">Export</a>
+<a href="#warroom">Guide</a>
+</nav>
+<div class="header-actions"><a aria-label="Open source repository on GitHub" class="ghost-btn github-link" href="https://github.com/Krishna-V-Gowda/EDA-InsightLab-Apex" rel="noreferrer" target="_blank">GitHub ↗</a>
+<button aria-label="Toggle theme" class="icon-btn" id="themeToggle" title="Toggle light/dark theme" type="button">◐</button>
+<button class="ghost-btn" id="openPalette" type="button">⌘ K</button>
+<button class="primary-btn compact" id="startShowcase" type="button">Guided Tour</button>
+</div>
+</header>
+<main>
+<section class="hero section-pad" id="hero">
+<div class="hero-copy reveal">
+<div class="pill-row">
+<span class="pulse-pill"><i></i> Local-first statistical discovery</span>
+<span>Privacy-first browser analytics</span>
+</div>
+<h1>From raw tables to defensible, model-ready data.</h1>
+<p class="hero-lead">EDA InsightLab Apex unifies profiling, visual diagnostics, preprocessing, feature engineering, feature selection, dimensionality reduction, and final data export in one explainable workflow.</p>
+<div class="hero-actions">
+<a class="primary-btn big" href="#studio">Launch Discovery Studio</a>
+<button class="secondary-btn big" id="loadDemoAndJump" type="button">Run guided demo</button>
+</div>
+<div aria-label="Product principles" class="product-meta"><span><b>Runtime</b> Local-first</span><span><b>Privacy</b> No server upload</span><span><b>Method</b> Explainable</span><span><b>Output</b> Exportable</span></div>
+</div>
+<div aria-label="Animated product preview" class="hero-product reveal delay-1">
+<div class="product-window tilt-card">
+<div class="window-bar">
+<i></i><i></i><i></i>
+<span>InsightLab Live Console</span>
+</div>
+<div class="console-grid">
+<div class="console-metric neon-a"><span>Rows</span><strong id="heroRows">180</strong></div>
+<div class="console-metric neon-b"><span>Quality</span><strong id="heroQuality">96</strong></div>
+<div class="console-metric neon-c"><span>Insights</span><strong>12</strong></div>
+</div>
+<div aria-hidden="true" class="live-graph">
+<svg preserveaspectratio="none" viewbox="0 0 420 180">
+<defs>
+<lineargradient id="heroLine" x1="0" x2="1" y1="0" y2="0">
+<stop stop-color="#7c5cff"></stop>
+<stop offset="0.5" stop-color="#00d5ff"></stop>
+<stop offset="1" stop-color="#39ffb6"></stop>
+</lineargradient>
+</defs>
+<path class="gridline" d="M0 45H420M0 90H420M0 135H420"></path>
+<path class="hero-trace" d="M0 132 C48 112 62 90 105 96 C150 104 163 28 210 56 C255 84 270 142 312 114 C358 84 376 50 420 38"></path>
+<path class="hero-fill" d="M0 132 C48 112 62 90 105 96 C150 104 163 28 210 56 C255 84 270 142 312 114 C358 84 376 50 420 38 L420 180 L0 180 Z"></path>
+</svg>
+</div>
+<div class="insight-terminal">
+<p><span>insight.engine()</span></p>
+<code id="typedInsight">Detecting missingness pattern...</code>
+</div>
+</div>
+<div class="orbit-card card-one"><b>Correlation</b><span>0.84 detected</span></div>
+<div class="orbit-card card-two"><b>Outlier Risk</b><span>IQR guardrail ready</span></div>
+<div class="orbit-card card-three"><b>Report</b><span>Storyboard generated</span></div>
+</div>
+</section>
+<section aria-label="Product proof points" class="section-pad proof-strip reveal">
+<article><strong>Local-first</strong><span>CSV data stays in the browser</span></article>
+<article><strong>Interactive</strong><span>Live profiling and visual diagnostics</span></article>
+<article><strong>Reproducible</strong><span>Pipeline, report, and dataset exports</span></article>
+<article><strong>Explainable</strong><span>Methods, assumptions, and limitations</span></article>
+</section>
+<section class="section-pad product-story reveal">
+<div class="section-title centered">
+<p class="eyebrow">Product Story</p>
+<h2>Built for the hardest part of data science: understanding the data before modeling.</h2>
+<p>Exploration is often fragmented across notebooks, charts, and ad hoc scripts. This platform turns it into a structured, inspectable flow from raw data to exportable analytical assets.</p>
+</div>
+<div class="story-track">
+<article><span>01</span><h3>Profile</h3><p>Infer schema, missingness, duplicates, outliers, and data quality.</p></article>
+<article><span>02</span><h3>Explore</h3><p>Investigate distributions, categories, relationships, and missingness patterns.</p></article>
+<article><span>03</span><h3>Prepare</h3><p>Impute, deduplicate, encode, scale, and document every transformation.</p></article>
+<article><span>04</span><h3>Engineer</h3><p>Create features, rank predictors, and reduce dimensions with PCA.</p></article>
+<article><span>05</span><h3>Export</h3><p>Download processed data, pipeline metadata, generated code, and a report outline.</p></article>
+</div>
+</section>
+<section class="section-pad studio-section" id="studio">
+<div class="section-title reveal">
+<p class="eyebrow">Live EDA Studio</p>
+<h2>One cockpit for profiling, visualization, and explanation.</h2>
+<p>Use a curated dataset for a guided walkthrough, or drag in a CSV to analyze unseen tabular data locally in the browser.</p>
+</div>
+<div class="studio-layout">
+<aside class="control-rail glass reveal">
+<div class="rail-head">
+<h3>Dataset Command Center</h3>
+<span id="datasetBadge">Manufacturing Quality</span>
+</div>
+<label class="dropzone" for="csvUpload" id="dropzone">
+<input accept=".csv,text/csv" id="csvUpload" type="file"/>
+<span>CSV</span>
+<strong>Drop dataset here</strong>
+<small>Local-only processing. No upload to any server.</small>
+</label>
+<div class="control-group">
+<label for="demoDataset">Sample dataset</label>
+<select id="demoDataset"><option selected="selected" value="manufacturing">Manufacturing Quality Process</option><option value="doe">DOE Response Surface Experiment</option><option value="retail">Retail Demand Pulse</option><option value="startups">Startup Growth Intelligence</option><option value="students">Student Success Analytics</option></select>
+</div>
+<div class="dual-buttons">
+<button class="primary-btn" id="loadDataset" type="button">Load Dataset</button>
+<button class="secondary-btn" id="randomizeDataset" type="button">Refresh</button>
+</div>
+<div class="control-group">
+<label for="searchBox">Search preview</label>
+<input id="searchBox" placeholder="Try: urban, series A, premium" type="search"/>
+</div>
+<div class="control-group">
+<label for="focusColumn">Focus column</label>
+<select id="focusColumn"></select>
+</div>
+<div class="control-group">
+<label for="xColumn">X axis</label>
+<select id="xColumn"></select>
+</div>
+<div class="control-group">
+<label for="yColumn">Y axis</label>
+<select id="yColumn"></select>
+</div>
+<div class="control-group">
+<label for="chartType">Chart family</label>
+<select id="chartType">
+<option value="histogram">Histogram</option>
+<option value="boxplot">Box Plot</option>
+<option value="scatter">Scatter Plot</option>
+<option value="bar">Categorical Bar</option>
+<option value="line">Trend Line</option>
+<option value="heatmap">Correlation Heatmap</option>
+<option value="missingness">Missingness Map</option>
+<option value="profile">Column Profile</option>
+</select>
+</div>
+<div class="mini-tip"><b>Keyboard:</b> Press <kbd>P</kbd> guided tour, <kbd>/</kbd> command palette, <kbd>D</kbd> demo dataset, <kbd>T</kbd> theme.</div>
+</aside>
+<div class="studio-main">
+<div class="kpi-grid reveal" id="kpiGrid"></div>
+<div class="intelligence-grid">
+<article class="glass panel reveal">
+<div class="panel-heading">
+<div><p class="eyebrow">Quality Engine</p><h3>Dataset Health Score</h3></div>
+<span class="status-dot">live</span>
+</div>
+<div class="health-zone">
+<div class="health-dial" id="healthDial"><strong>96</strong><span>/100</span></div>
+<div>
+<ul class="health-list" id="healthList"></ul>
+<button class="ghost-btn" id="copyExecutiveSummary" type="button">Copy executive summary</button>
+</div>
+</div>
+</article>
+<article class="glass panel reveal delay-1">
+<div class="panel-heading">
+<div><p class="eyebrow">Narrative Layer</p><h3>Insight Engine</h3></div>
+<span class="status-dot">explain</span>
+</div>
+<div class="insight-stack" id="insightStack"></div>
+</article>
+</div>
+<article class="glass panel table-panel reveal">
+<div class="panel-heading">
+<div><p class="eyebrow">Data Preview</p><h3 id="tableTitle">First 20 records</h3></div>
+<span id="previewMeta">ready</span>
+</div>
+<div class="table-wrap"><table id="dataTable"></table></div>
+</article>
+</div>
+</div>
+</section>
+<section class="section-pad visuals-section" id="visuals">
+<div class="section-title reveal">
+<p class="eyebrow">Visualization Studio</p>
+<h2>Charts that teach, not just decorate.</h2>
+<p>Every chart is paired with interpretation guidance so visual output remains connected to statistical reasoning and decision context.</p>
+</div>
+<div class="visual-grid">
+<article class="glass chart-shell reveal">
+<div class="panel-heading">
+<div><p class="eyebrow" id="chartEyebrow">Histogram</p><h3 id="chartTitle">Distribution view</h3></div>
+<div class="chart-actions">
+<button class="ghost-btn" id="downloadChart" type="button">Export SVG</button>
+<button class="secondary-btn" id="explainChart" type="button">Explain chart</button>
+</div>
+</div>
+<div aria-label="Interactive EDA chart" class="chart-canvas" id="chartCanvas" role="img"></div>
+<div class="chart-caption" id="chartCaption">Select columns from the command center to update this visualization.</div>
+</article>
+<aside class="glass panel reveal delay-1">
+<div class="panel-heading"><div><p class="eyebrow">Column Cards</p><h3>Schema intelligence</h3></div><span id="columnCountChip">0 columns</span></div>
+<div class="column-cards" id="columnCards"></div>
+</aside>
+</div>
+</section>
+<section class="section-pad cleaning-section" id="cleaning">
+<div class="section-title reveal">
+<p class="eyebrow">Data Cleaning Lab</p>
+<h2>Safe cleaning decisions with visible impact.</h2>
+<p>Instead of blindly changing data, the lab shows what each operation does and why it is used in EDA.</p>
+</div>
+<div class="cleaning-grid">
+<article class="glass panel reveal">
+<div class="panel-heading"><div><p class="eyebrow">Actions</p><h3>Cleaning Playbook</h3></div><span>non-destructive choices</span></div>
+<div class="action-list">
+<button class="clean-action" data-action="impute" type="button"><b>Impute Missing Values</b><span>Numeric median, categorical mode</span></button>
+<button class="clean-action" data-action="duplicates" type="button"><b>Remove Duplicate Rows</b><span>Exact duplicate detection</span></button>
+<button class="clean-action" data-action="outliers" type="button"><b>Cap IQR Outliers</b><span>Winsorize extreme values</span></button>
+<button class="clean-action" data-action="encode" type="button"><b>Recommend Encoding</b><span>One-hot / ordinal strategy guide</span></button>
+<button class="clean-action" data-action="scale" type="button"><b>Recommend Scaling</b><span>Standardization guidance</span></button>
+</div>
+</article>
+<article class="glass panel reveal delay-1">
+<div class="panel-heading"><div><p class="eyebrow">Impact</p><h3>Before vs After</h3></div><button class="ghost-btn" id="resetCleaning" type="button">Reset data</button></div>
+<div class="impact-bars" id="impactBars"></div>
+<div class="cleaning-log" id="cleaningLog">Choose an action to see the rationale, expected impact, and generated code.</div>
+</article>
+<article class="glass panel code-panel reveal delay-2">
+<div class="panel-heading"><div><p class="eyebrow">Code Companion</p><h3>Python EDA snippets</h3></div><button class="ghost-btn" id="copyCode" type="button">Copy code</button></div>
+<pre><code id="codeBlock"></code></pre>
+</article>
+</div>
+</section>
+<section class="section-pad apex-slab feature-section" id="featurelab">
+<div class="section-title reveal">
+<p class="eyebrow">Apex Feature Engineering Lab</p>
+<h2>Turn raw columns into model-ready signals.</h2>
+<p>Engineer features, build a complete preprocessing pipeline, inspect encoded and scaled variables, and export the transformed dataset with a transparent history.</p>
+</div>
+<div class="apex-grid">
+<article class="glass panel reveal">
+<div class="panel-heading"><div><p class="eyebrow">Feature Controls</p><h3>Build new predictors</h3></div><span>safe + explainable</span></div>
+<div class="lab-controls">
+<label>Numeric feature A<select id="featureA"></select></label>
+<label>Numeric feature B<select id="featureB"></select></label>
+<label>Categorical feature<select id="featureCat"></select></label>
+</div>
+<div class="action-list apex-actions" style="margin-top:1rem">
+<button class="clean-action apex-action" data-apex="ratio" type="button"><b>Create Ratio Feature</b><span>A / B with zero-safe handling</span></button>
+<button class="clean-action apex-action" data-apex="interaction" type="button"><b>Create Interaction Feature</b><span>A × B for combined effects</span></button>
+<button class="clean-action apex-action" data-apex="squared" type="button"><b>Create Polynomial Feature</b><span>A squared for curvature</span></button>
+<button class="clean-action apex-action" data-apex="bin" type="button"><b>Bin Numeric Feature</b><span>Low / Medium / High by quantiles</span></button>
+<button class="clean-action apex-action" data-apex="onehot" type="button"><b>One-Hot Encode Category</b><span>Model-ready dummy columns</span></button>
+<button class="clean-action apex-action" data-apex="zscore" type="button"><b>Add Z-Score Scaled Features</b><span>Standardized numeric columns</span></button>
+<button class="clean-action apex-action" data-apex="automl" type="button"><b>Build Complete Preprocessed Dataset</b><span>Impute, dedupe, cap, encode, scale</span></button>
+</div>
+</article>
+<article class="glass panel reveal delay-1">
+<div class="panel-heading"><div><p class="eyebrow">Transformation Pipeline</p><h3>Reproducible history</h3></div><button class="ghost-btn" id="undoLastStep" type="button">Undo last</button></div>
+<div class="pipeline-list" id="pipelineList"></div>
+<div class="export-buttons">
+<button class="primary-btn compact" id="downloadProcessedCSV" type="button">Download final CSV</button>
+<button class="secondary-btn compact" id="downloadPipelineJSON" type="button">Pipeline JSON</button>
+<button class="ghost-btn" id="downloadPipelinePython" type="button">Python pipeline</button>
+</div>
+</article>
+<article class="glass panel reveal delay-2">
+<div class="panel-heading"><div><p class="eyebrow">Feature Inventory</p><h3>New engineered signals</h3></div><span id="featureInventoryCount">0 engineered</span></div>
+<div class="feature-card-grid" id="featureInventory"></div>
+</article>
+</div>
+</section>
+<section class="section-pad apex-slab selection-section" id="selection">
+<div class="section-title reveal">
+<p class="eyebrow">Feature Selection Observatory</p>
+<h2>Rank predictors before modeling.</h2>
+<p>The selection engine scores features using target relevance, missingness penalty, low variance detection, and redundancy risk. It explains what should be kept, reviewed, or dropped.</p>
+</div>
+<div class="apex-grid two">
+<article class="glass panel reveal">
+<div class="panel-heading"><div><p class="eyebrow">Target-Aware Ranking</p><h3>Predictor leaderboard</h3></div><button class="primary-btn compact" id="runFeatureSelection" type="button">Run selection</button></div>
+<div class="lab-controls" style="grid-template-columns:1fr 1fr; margin-bottom:1rem">
+<label>Target variable<select id="targetColumn"></select></label>
+<label>Selection lens<select id="selectionLens"><option value="auto">Auto relevance + quality</option><option value="variance">Variance threshold</option><option value="correlation">Correlation/redundancy</option></select></label>
+</div>
+<div class="selection-table" id="selectionTable"></div>
+</article>
+<aside class="glass panel reveal delay-1">
+<div class="panel-heading"><div><p class="eyebrow">Preprocessing Readiness</p><h3>Is the workflow ready for task-aware validation?</h3></div><span>not model accuracy</span></div>
+<div class="readiness-ring" id="readinessRing" style="--score:80"><b id="readinessScore">80</b></div>
+<div class="discovery-output" id="readinessText" style="margin-top:1rem"></div>
+<div class="evidence-list" id="selectionDiagnostics"></div>
+</aside>
+</div>
+</section>
+<section class="section-pad apex-slab pca-section" id="pca">
+<div class="section-title reveal">
+<p class="eyebrow">Dimension Reduction + Statistical Discovery</p>
+<h2>PCA, process capability, and DOE-style response exploration.</h2>
+<p>This brings the project closer to statistical discovery software workflows: multivariate structure, dimensionality reduction, response-surface thinking, quality metrics, and final data readiness.</p>
+</div>
+<div class="apex-grid two">
+<article class="glass panel reveal">
+<div class="panel-heading"><div><p class="eyebrow">Principal Component Analysis</p><h3>2D multivariate map</h3></div><div class="chart-actions"><button class="primary-btn compact" id="runPCA" type="button">Run PCA</button><button class="ghost-btn" id="addPCAColumns" type="button">Add PC columns</button></div></div>
+<div class="pca-canvas" id="pcaCanvas"></div>
+<div class="chart-caption" id="pcaStats">Run PCA to project standardized numeric features onto PC1 and PC2.</div>
+</article>
+<aside class="glass panel reveal delay-1">
+<div class="panel-heading"><div><p class="eyebrow">Quality + DOE Lens</p><h3>Process and experiment diagnostics</h3></div><span class="tag">quality lens</span></div>
+<div class="lab-controls">
+<label>Response / quality metric<select id="qualityResponse"></select></label>
+<label>Lower spec limit<input id="lslInput" type="number" value="50"/></label>
+<label>Upper spec limit<input id="uslInput" type="number" value="90"/></label>
+<button class="secondary-btn" id="runQualityLens" type="button">Calculate capability + DOE surface</button>
+</div>
+<div class="discovery-output" id="qualityOutput"></div>
+</aside>
+</div>
+</section>
+<section class="section-pad apex-slab vault-section" id="vault">
+<div class="section-title reveal">
+<p class="eyebrow">Final Data Vault + Insight Assistant</p>
+<h2>Export the complete preprocessed dataset, not just the charts.</h2>
+<p>Download a cleaned, encoded, engineered, PCA-ready dataset together with transparent transformation steps and generated code.</p>
+</div>
+<div class="data-vault">
+<article class="glass panel reveal">
+<div class="panel-heading"><div><p class="eyebrow">Preprocessed Preview</p><h3>Final data table</h3></div><span id="processedMeta">0 rows</span></div>
+<div class="mini-table" id="processedPreview"></div>
+<div class="export-buttons">
+<button class="primary-btn compact" id="vaultDownloadCSV" type="button">Download preprocessed CSV</button>
+<button class="secondary-btn compact" id="vaultDownloadReport" type="button">Download discovery report</button>
+</div>
+</article>
+<article class="glass panel reveal delay-1 discovery-lens">
+<div class="panel-heading"><div><p class="eyebrow">Statistical Discovery Assistant</p><h3>Explain the analysis</h3></div><button class="ghost-btn" id="askAssistant" type="button">Answer</button></div>
+<div class="assistant-box">
+<textarea id="assistantQuestion" placeholder="Ask: Which features should I keep? Is my data model-ready? What changed after preprocessing?"></textarea>
+<div class="answer-card" id="assistantAnswer"><strong>Try asking:</strong> “What changed after preprocessing?” or “Which feature selection result should I present?”</div>
+</div>
+</article>
+</div>
+</section>
+<section class="section-pad learn-section" id="learn">
+<div class="section-title reveal">
+<p class="eyebrow">Methods Atlas</p>
+<h2>A compact methods atlas for explainable analysis.</h2>
+<p>The platform pairs execution with explanation through concept cards, common pitfalls, workflow recipes, and fast knowledge checks.</p>
+</div>
+<div class="learn-toolbar glass reveal">
+<input id="conceptSearch" placeholder="Search concepts: skewness, correlation, outlier, scaling..." type="search"/>
+<div class="filter-tabs" id="conceptTabs"></div>
+</div>
+<div class="concept-grid reveal" id="conceptGrid"></div>
+<div class="quiz-recipe-grid">
+<article class="glass panel reveal">
+<div class="panel-heading"><div><p class="eyebrow">Quiz Arena</p><h3>Test statistical reasoning</h3></div><span id="xpBadge">0 XP</span></div>
+<div class="quiz-box" id="quizBox"></div>
+</article>
+<article class="glass panel reveal delay-1">
+<div class="panel-heading"><div><p class="eyebrow">Recipe Builder</p><h3>Generate an EDA workflow</h3></div><button class="ghost-btn" id="buildRecipe" type="button">Build recipe</button></div>
+<div class="recipe-options">
+<label><input checked="" type="checkbox" value="quality"/> Data quality audit</label>
+<label><input checked="" type="checkbox" value="distribution"/> Distribution analysis</label>
+<label><input checked="" type="checkbox" value="relationship"/> Relationship analysis</label>
+<label><input checked="" type="checkbox" value="cleaning"/> Cleaning plan</label>
+<label><input checked="" type="checkbox" value="communication"/> Insight communication</label>
+</div>
+<ol class="recipe-output" id="recipeOutput"></ol>
+</article>
+</div>
+</section>
+<section class="section-pad report-section" id="report">
+<div class="section-title reveal">
+<p class="eyebrow">Discovery Report</p>
+<h2>Turn analysis into a polished, defensible narrative.</h2>
+<p>The strongest analytical output is not a chart collection. It is a traceable explanation of what was found, why it matters, and what should happen next.</p>
+</div>
+<div class="report-grid">
+<article class="glass panel reveal">
+<div class="panel-heading"><div><p class="eyebrow">Generated Storyboard</p><h3>Analysis-ready report outline</h3></div><div class="chart-actions"><button class="ghost-btn" id="copyReport" type="button">Copy</button><button class="primary-btn compact" id="downloadReport" type="button">Download .md</button></div></div>
+<textarea id="reportText" spellcheck="false"></textarea>
+</article>
+<aside class="glass panel reveal delay-1">
+<div class="panel-heading"><div><p class="eyebrow">Engineering Lens</p><h3>Why the workflow is robust</h3></div><span>Built for explainability</span></div>
+<div class="evidence-list">
+<article><b>Local processing</b><span>CSV files are parsed and analyzed inside the browser; no upload is required.</span></article>
+<article><b>Transparent logic</b><span>Quality scores and recommendations are rule-based and inspectable rather than opaque.</span></article>
+<article><b>Reproducible outputs</b><span>Processed data, pipeline JSON, Python code, charts, and reports can be exported.</span></article>
+<article><b>Responsible scope</b><span>The interface states where domain validation, leakage review, and production controls are still required.</span></article>
+</div>
+</aside>
+</div>
+</section>
+<section class="section-pad warroom-section" id="warroom">
+<div class="section-title reveal centered">
+<p class="eyebrow">Product Guide</p>
+<h2>A guided product walkthrough for live and asynchronous review.</h2>
+<p>Use this section to explain the product thesis, browser architecture, statistical methods, and key technical trade-offs.</p>
+</div>
+<div class="war-grid">
+<article class="glass panel reveal">
+<p class="eyebrow">30-second product pitch</p>
+<h3>What it is</h3>
+<p class="big-quote">“EDA InsightLab Apex turns raw tabular data into a guided statistical discovery workflow - from profiling and visual diagnostics to preprocessing, feature engineering, feature selection, PCA, and exportable analytical assets.”</p>
+</article>
+<article class="glass panel reveal delay-1">
+<p class="eyebrow">The current release is a zero-backend browser application with local CSV parsing, schema inference, statistical profiling, SVG chart rendering, rule-based insight generation, and client-side exports.</p>
+<h3>Why local-first matters</h3>
+<p>The site is a zero-backend browser application with local CSV parsing, schema inference, statistical profiling, SVG-based chart rendering, rule-based insight generation, and client-side report export.</p>
+</article>
+<article class="glass panel reveal delay-2">
+<p class="eyebrow">Technical Q&amp;A</p>
+<h3 id="technicalQuestion">What is the purpose of EDA?</h3>
+<p id="technicalAnswer">EDA helps understand structure, quality, distribution, relationships, anomalies, and assumptions before formal modeling.</p>
+<button class="primary-btn compact" id="nextTechnicalQuestion" type="button">Next question</button>
+</article>
+</div>
+</section>
+</main><footer class="site-footer">
+<div class="footer-brand">
+<img alt="EDA InsightLab Apex mark" src="assets/brand/mark.svg"/>
+<div><strong>EDA InsightLab Apex</strong><span>Statistical Discovery Platform · v1.0.0</span></div>
+</div>
+<p>Local-first exploratory analysis, explainable preprocessing, feature engineering, selection, PCA, and export.</p>
+<div class="footer-links">
+<a href="https://github.com/Krishna-V-Gowda/EDA-InsightLab-Apex" rel="noreferrer" target="_blank">Source code ↗</a>
+<a href="docs/EDA_InsightLab_Apex_Product_Deck.pdf">Product deck</a>
+<span>Created by Kriss Gowda</span>
+</div>
+</footer>
+<button class="floating-demo" id="floatingDemo" type="button">▶ Tour</button>
+<div aria-labelledby="paletteTitle" aria-modal="true" class="palette" hidden="" id="palette" role="dialog">
+<div class="palette-card">
+<div class="palette-head"><h2 id="paletteTitle">Command Palette</h2><button aria-label="Close command palette" class="icon-btn" id="closePalette" type="button">×</button></div>
+<input id="paletteSearch" placeholder="Type: upload, chart, quiz, report, theme, demo..." type="search"/>
+<div class="palette-results" id="paletteResults"></div>
+</div>
+</div>
+<div class="showcase-panel" hidden="" id="showcasePanel">
+<div class="showcase-progress"><span id="showcaseProgress"></span></div>
+<p class="eyebrow">Guided Tour</p>
+<h3 id="showcaseTitle">Opening</h3>
+<p id="showcaseText">Start with the product thesis, then walk through the live discovery workflow.</p>
+<div class="showcase-actions">
+<button class="ghost-btn" id="prevShowcase" type="button">Back</button>
+<button class="primary-btn compact" id="nextShowcase" type="button">Next</button>
+<button class="secondary-btn compact" id="exitShowcase" type="button">Exit</button>
+</div>
+</div>
+<div aria-atomic="true" aria-live="polite" class="toast-region" id="toastRegion"></div>
+<script defer="" src="assets/js/app.js"></script>
+</body>
+</html>

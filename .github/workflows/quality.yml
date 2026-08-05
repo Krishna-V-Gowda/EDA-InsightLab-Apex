@@ -1,0 +1,16 @@
+name: Public Build Quality
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify repository and public copy
+        run: python scripts/verify_public_build.py
+      - name: Check JavaScript syntax
+        run: node --check assets/js/app.js

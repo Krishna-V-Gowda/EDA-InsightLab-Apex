@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://krishna-v-gowda.github.io/EDA-InsightLab-Apex/sitemap.xml
