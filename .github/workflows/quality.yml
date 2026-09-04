@@ -5,12 +5,13 @@ on:
     branches: ["main"]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify repository and public copy
-        run: python scripts/verify_public_build.py
-      - name: Check JavaScript syntax
-        run: node --check assets/js/app.js
+      - name: Run release integrity and exact-source regression gate
+        run: ./scripts/verify_release.sh

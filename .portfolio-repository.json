@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "owner": "Krishna-V-Gowda",
+  "repository": "EDA-InsightLab-Apex",
+  "managed_by": "KVG_LAB_FINAL",
+  "public_intent": true,
+  "role": "flagship-component",
+  "identity": "local-first analytical product verified by TrustBench",
+  "version": "1.0.1"
+}
