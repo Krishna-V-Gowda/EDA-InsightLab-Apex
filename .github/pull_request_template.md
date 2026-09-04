@@ -5,13 +5,13 @@
 ## Statistical or product rationale
 
 ## Verification performed
-- [ ] `python scripts/verify_public_build.py`
-- [ ] `node --check assets/js/app.js`
-- [ ] Built-in manufacturing workflow tested
-- [ ] Desktop layout checked
-- [ ] Mobile layout checked
-- [ ] Documentation updated
+- [ ] `./scripts/verify_release.sh`
+- [ ] Independent TrustBench evidence regenerated when statistical behavior changed
+- [ ] Built-in manufacturing workflow tested when UI behavior changed
+- [ ] Desktop layout checked when presentation changed
+- [ ] 390px mobile layout checked when presentation changed
+- [ ] Methodology, limitations, and changelog updated
 
-## Screenshots
+## Evidence / screenshots
 
-## Limitations / follow-up
+## Interpretation limits and follow-up

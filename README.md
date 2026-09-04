@@ -8,15 +8,11 @@
   <a href="docs/EDA_InsightLab_Apex_Product_Deck.pdf"><strong>View the product deck</strong></a>
   ·
   <a href="docs/DEMO_GUIDE.md"><strong>Run the guided demo</strong></a>
+  ·
+  <a href="docs/verification/README.md"><strong>Inspect verification evidence</strong></a>
 </p>
 
-<p align="center">
-  <img alt="Release" src="https://img.shields.io/badge/release-v1.0.0-7c5cff?style=flat-square">
-  <img alt="Runtime" src="https://img.shields.io/badge/runtime-local--first-00d5ff?style=flat-square">
-  <img alt="Backend" src="https://img.shields.io/badge/backend-none-39ffb6?style=flat-square">
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-f0c674?style=flat-square">
-  <img alt="Quality" src="https://img.shields.io/badge/quality-automated%20checks-ff7ab6?style=flat-square">
-</p>
+<p align="center"><code>v1.0.1</code> · <code>local-first</code> · <code>zero backend</code> · <code>MIT</code></p>
 
 # EDA InsightLab Apex
 
@@ -40,6 +36,20 @@ The product is built around a simple principle:
   <img src="assets/screenshots/feature-selection.png" alt="Target-aware feature selection" width="49%">
   <img src="assets/screenshots/pca.png" alt="Principal component analysis workspace" width="49%">
 </p>
+
+## Verified correction cycle
+
+The v1.0.1 release is backed by a controlled exact-source experiment, not only screenshots or README claims. TrustBench executed the shipped browser functions against independent NumPy, SciPy, pandas, and scikit-learn references plus metamorphic invariants.
+
+| Same 16 checks | Uploaded v1.0.0 | Hardened v1.0.1 |
+|---|---:|---:|
+| Pass | 7 | **15** |
+| Definition divergence | 2 | **0** |
+| Limitation | 4 | **1** |
+| Failed invariant | 3 | **0** |
+| High-priority non-pass | 4 | **0** |
+
+The remaining low-severity boundary is explicit: missing-token recognition is deterministic but not yet configurable per dataset or column. Read the [experimental controls, reports, source hashes, and exact patch](docs/verification/README.md).
 
 ## Why it exists
 
@@ -91,18 +101,18 @@ Raw CSV
 ### 5. Feature Selection Observatory
 - Automatic preferred target for each built-in dataset
 - Pearson correlation for numeric-to-numeric relevance
-- Eta-squared for numeric predictors against categorical targets
-- Cramer's V for categorical associations
+- Eta-squared for numeric/categorical target-predictor pairings
+- Raw, full-table Cramer's V for categorical associations
 - Missingness, low-variance, and redundancy penalties
 - Explicit keep/review/drop recommendations
-- Exclusion of the target and target-derived features from predictor ranking
+- Exclusion of the target, recorded target derivatives, and exact raw target copies
 
 ### 6. PCA workspace
-- Standardization before covariance analysis
+- Mean imputation followed by sample-standard-deviation scaling
 - Power-iteration approximation for the first two principal components
 - Explained-variance indicators
 - PC1/PC2 projection and optional export
-- Target and target-derived columns excluded from PCA inputs
+- Target and target-derived columns excluded; every eligible numeric predictor included
 
 ### 7. Final Data Vault
 - Final processed CSV download
@@ -181,8 +191,10 @@ EDA-InsightLab-Apex/
 │   ├── diagrams/                 # Architecture and workflow visuals
 │   └── screenshots/              # Verified product views
 ├── datasets/                     # Demonstration CSV files
-├── docs/                         # Architecture, methodology, demo, deck
+├── docs/                         # Architecture, method, deck, verification evidence
+├── tests/                        # Exact-source statistical invariants
 ├── scripts/verify_public_build.py
+├── scripts/verify_release.sh     # One-command integrity + regression gate
 ├── .github/workflows/            # Quality checks and Pages deployment
 ├── CHANGELOG.md
 ├── ROADMAP.md
@@ -210,33 +222,30 @@ The current version is local-first: uploaded CSV data remains in the browser tab
 
 ## Quality assurance
 
-The repository includes automated public-build checks for:
+Quality is separated into three layers:
 
-- required product files;
-- broken local asset references;
-- public-copy scans for removed academic branding;
-- basic accessibility and metadata requirements;
-- file-size guardrails;
-- JavaScript syntax validation in GitHub Actions.
+1. **Package integrity:** required files, local references, publication boundaries, accessibility fragments, and size guardrails.
+2. **Exact-source regression:** seven dependency-free Node tests extract 27 declarations from the released `app.js` and protect the repaired ingestion, statistics, association, leakage, and PCA behavior.
+3. **Independent verification:** TrustBench compares the exact browser source with scientific Python references and metamorphic properties, preserving both the baseline and post-repair reports.
 
-Run locally:
+Run the complete local gate:
 
 ```bash
-python scripts/verify_public_build.py
-node --check assets/js/app.js
+./scripts/verify_release.sh
 ```
+
+See [`docs/TECHNICAL_QA.md`](docs/TECHNICAL_QA.md) and [`docs/verification/`](docs/verification/) for the executed checks and interpretation limits.
 
 ## Roadmap
 
-Planned directions include:
+The next justified work is narrower than “add more features”:
 
-- validated server-side statistics for larger datasets;
-- schema contracts and dataset versioning;
+- configurable missing-token and schema contracts;
+- generated edge cases for parser and numerical behavior;
+- semantic equivalence across browser state, CSV, pipeline JSON, and generated Python;
+- visible PCA resource/convergence diagnostics;
 - leakage-safe train/test workflow automation;
-- anomaly detection and model baselines;
-- explainable AI copilot grounded in computed statistics;
-- project workspaces, audit logs, and collaboration;
-- automated tests against reference statistical libraries.
+- server-side computation only when measured browser limits justify it.
 
 See [`ROADMAP.md`](ROADMAP.md) for the staged plan.
 
@@ -246,8 +255,8 @@ Thoughtful issues, reproducible bug reports, documentation improvements, and wel
 
 ## Author
 
-**Kriss Gowda**  
-Building intelligent products that turn ambitious ideas into real-world impact.
+**Krishna V. Gowda**  
+Computer science undergraduate working on analytical reliability, machine-learning systems, and quantitative computing.
 
 - GitHub: [@Krishna-V-Gowda](https://github.com/Krishna-V-Gowda)
 - Product: [EDA InsightLab Apex](https://krishna-v-gowda.github.io/EDA-InsightLab-Apex/)

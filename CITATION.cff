@@ -2,12 +2,12 @@ cff-version: 1.2.0
 message: "If you use EDA InsightLab Apex in teaching, research, or a derivative project, please cite the software."
 title: "EDA InsightLab Apex"
 type: software
-version: 1.0.0
-date-released: 2026-08-05
+version: 1.0.1
+date-released: 2026-09-03
 license: MIT
 authors:
   - family-names: Gowda
-    given-names: Kriss
+    given-names: Krishna V.
 repository-code: "https://github.com/Krishna-V-Gowda/EDA-InsightLab-Apex"
 url: "https://krishna-v-gowda.github.io/EDA-InsightLab-Apex/"
 abstract: "A local-first statistical discovery platform for exploratory data analysis, preprocessing, feature engineering, feature selection, PCA, and exportable analytical workflows."

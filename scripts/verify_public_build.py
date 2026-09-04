@@ -9,13 +9,15 @@ ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = [
     'index.html', '404.html', 'assets/css/styles.css', 'assets/js/app.js',
     'assets/brand/mark.svg', 'assets/brand/social-preview.png',
-    'README.md', 'LICENSE', 'CHANGELOG.md', 'ROADMAP.md'
+    'README.md', 'LICENSE', 'CHANGELOG.md', 'ROADMAP.md',
+    'scripts/verify_release.sh', 'tests/statistical_invariants.test.mjs',
+    'docs/verification/README.md'
 ]
 BANNED = [
     'DATA801', 'Vidyashilp', 'Prof. Shital', 'UEN:',
     'Summer Internship', 'mentor acknowledgement', 'course plan'
 ]
-TEXT_SUFFIXES = {'.html', '.css', '.js', '.md', '.txt', '.yml', '.yaml', '.xml', '.py', '.cff'}
+TEXT_SUFFIXES = {'.html', '.css', '.js', '.md', '.txt', '.yml', '.yaml', '.xml', '.py', '.cff', '.mjs', '.json', '.patch'}
 
 class RefParser(HTMLParser):
     def __init__(self):

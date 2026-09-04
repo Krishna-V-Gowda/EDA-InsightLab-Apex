@@ -2,6 +2,26 @@
 
 All notable changes to EDA InsightLab Apex are documented here. The project follows semantic versioning.
 
+## [1.0.1] - 2026-09-03
+
+### Corrected
+- Preserved duplicate CSV fields by deterministically suffixing repeated headers.
+- Replaced the mixed skewness formula with adjusted Fisher–Pearson skewness.
+- Protected unique numeric columns with identifier-like names from measurement workflows.
+- Reimplemented raw Cramer's V over complete sparse counts, removing encounter-order truncation.
+- Added eta-squared relevance for categorical predictors against numeric targets.
+- Excluded exact value copies of the target independently of names or recorded lineage.
+- Standardized PCA after mean imputation and removed the silent ten-predictor cap.
+
+### Verified
+- Added seven dependency-free exact-source Node regression tests.
+- Added one-command release verification through `scripts/verify_release.sh`.
+- Preserved controlled TrustBench before/after reports, machine-readable evidence, source hashes, and the exact patch under `docs/verification/`.
+- Improved the 16-case result from 7 passes, 2 divergences, 4 limitations, and 3 failed invariants to 15 passes, 0 divergences, 1 limitation, and 0 failed invariants.
+
+### Remaining limitation
+- Missing-token recognition is deterministic but not yet configurable by dataset or column.
+
 ## [1.0.0] - 2026-08-05
 
 ### Added
