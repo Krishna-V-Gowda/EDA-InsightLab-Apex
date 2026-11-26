@@ -16,6 +16,9 @@
 
 # EDA InsightLab Apex
 
+> **Verified build:** the live app is fingerprinted against TrustBench's post-repair hash, and your browser can check the match itself. [Open the live proof](https://krishna-v-gowda.github.io/systems/apex.html). Part of [Krishna V. Gowda's portfolio](https://krishna-v-gowda.github.io/).
+
+
 **EDA InsightLab Apex is a local-first statistical discovery platform that turns raw tabular data into an explainable, exportable analytical workflow.** It brings profiling, visual diagnostics, preprocessing, feature engineering, target-aware feature selection, principal component analysis, quality reasoning, and final data export into one browser application.
 
 The product is built around a simple principle:
