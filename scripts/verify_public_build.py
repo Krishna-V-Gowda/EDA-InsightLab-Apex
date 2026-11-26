@@ -2,8 +2,6 @@
 """Dependency-free public release checks for EDA InsightLab Apex."""
 from pathlib import Path
 from html.parser import HTMLParser
-import re
-import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = [
